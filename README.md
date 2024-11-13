@@ -43,13 +43,51 @@ Borrow out = A'Bin + A'B + BBin
 Write the detailed procedure here
 
 **Program:**
+```
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
+ Developed by:swetha.c
+RegisterNumber:24901183*/
+```
+full subtractor:
+```
+module EXP04(sum,cout,a,b,cin);
+output sum;
+output cout;
+input a;
+input b;
+input cin;
+wire s1,c1,c2;
+xor(s1,a,b);
+and(c1,a,b);
+xor(sum,s1,cin);
+and(c2,s1,cin);
+or(cout,c2,c1);
+endmodule
+```
+full subtractor:
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
-
+```
+module EXP04 (df,bo,a,b,bin);
+output df;
+output bo;
+input a;
+input b;
+input bin;
+wire w1,w2,w3;
+assign w1=a^b;
+assign w2=(~a&b);
+assign w3=(~w1&bin);
+assign df=w1^bin;
+assign bo=w2|w3;
+endmodule
+```
 **RTL Schematic**
+![WhatsApp Image 2024-11-13 at 02 49 19_3d80109d](https://github.com/user-attachments/assets/6ed55c84-97de-47d2-9168-917cc6b49d60)
+![WhatsApp Image 2024-11-13 at 02 49 25_6dc17fa3](https://github.com/user-attachments/assets/28beb9bd-2424-4cf6-97fa-0005fa6824ba)
 
 **Output Timing Waveform**
+![WhatsApp Image 2024-11-13 at 02 49 32_c0559132](https://github.com/user-attachments/assets/ed266fc6-65ea-4362-927f-db08b53986e2)
+![WhatsApp Image 2024-11-13 at 02 49 42_83415df6](https://github.com/user-attachments/assets/cf3f4a8f-0f4c-4201-9b46-86b26d8cdfee)
 
 **Result:**
 
